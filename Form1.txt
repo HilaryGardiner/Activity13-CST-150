@@ -1,0 +1,223 @@
+namespace TwoDimensionalArray
+{
+    public partial class Form1 : Form
+    {
+        //Create a random object.
+        Random random = new Random();
+        //Create a two dimentional int array
+        const int ROWS = 3;
+        const int COLS = 3;
+        int[,] values = new int[ROWS, COLS];
+        string XWinner;
+        string YWinner;
+        
+        //Char X;
+       // Char O;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e) //Button to start the game and step through the array
+        {
+            //Fill the array with random numbers.
+            for(int row =0; row < ROWS; row++)
+            {
+                for(int col =0; col < COLS; col++)
+                {
+                    values[row, col] = random.Next(2); // generates random numbers between 0 and 1
+                    //Checking row 0 column 0
+                    if (values[0, 0] == 0) // storing X and O in the text box
+                    {
+                        label1.Text = "O";
+                        
+
+                    }
+                    else
+                    {
+                        label1.Text = "X";
+                        
+
+                    }
+
+                    // Checking row 0 column 1
+                    if (values[0, 1] == 0)
+                    {
+                        
+                        label2.Text = "O";
+                        
+
+                    }
+                    else
+                    {
+                        
+                        label2.Text = "X";
+                        
+
+                    }
+
+                    //Checking row 0 column2
+                    if (values[0, 2] == 0)
+                    {
+                        
+                        label3.Text = "O";
+
+                    }
+                    else
+                    {
+                        
+                        label3.Text = "X";
+
+                    }
+
+
+                    //Checking row 1 column 0
+                    if (values[1, 0] == 0)
+                    {
+
+                        label4.Text = "O";
+
+                    }
+                    else
+                    {
+
+                        label4.Text = "X";
+
+                    }
+
+                    //Checking row 1 column 1
+                    if (values[1, 1] == 0)
+                    {
+
+                        label5.Text = "O";
+
+                    }
+                    else
+                    {
+
+                        label5.Text = "X";
+
+                    }
+
+                    //Checking row 1 column2
+                    if (values[1, 2] == 0)
+                    {
+
+                        label6.Text = "O";
+
+                    }
+                    else
+                    {
+
+                        label6.Text = "X";
+
+                    }
+
+                    //Checking row 2 column 0
+                    if (values[2, 0] == 0)
+                    {
+
+                        label7.Text = "O";
+
+                    }
+                    else
+                    {
+
+                        label7.Text = "X";
+
+                    }
+
+                    //Checking row 2 column 1
+                    if (values[2, 1] == 0)
+                    {
+
+                        label8.Text = "O";
+
+                    }
+                    else
+                    {
+
+                        label8.Text = "X";
+
+                    }
+
+                    //Checking row 2 column2
+                    if (values[2, 2] == 0)
+                    {
+
+                        label9.Text = "O";
+
+                    }
+                    else
+                    {
+
+                        label9.Text = "X";
+
+                    }
+
+                }
+            }
+            //Display the array contents.
+            for(int row =0; row < ROWS; row++)
+            {
+                for(int col =0; col < COLS; col++)
+                {
+                    
+                    
+                        if ((values[0, 0] == 1 && values[0, 1] == 1 && values[0, 2] == 1) || (values[1, 0] == 1 && values[1, 1] == 1 && values[1, 2] == 1) || (values[2, 0] == 1 && values[2, 1] == 1 && values[2, 2] == 1)
+                            || (values[0, 0] == 1 && values[1, 0] == 1 && values[2, 0] == 1) || (values[2, 1] == 1 && values[1, 1] == 1 && values[0, 1] == 1) || (values[0, 2] == 1 && values[1, 2] == 1 && values[2, 2] == 1)
+                            || (values[0, 2] == 1 && values[1, 1] == 1 && values[2, 0] == 1) || (values[0, 0] == 1 && values[1, 1] == 1 && values[2, 2] == 1))
+                        {
+                            textBox1.Text = "X Wins!";
+
+                            XWinner = "yes";
+
+                    }
+                    else
+                    {
+                        XWinner = "no";
+
+                    }
+                    
+
+                    if ((values[0, 0] == 0 && values[0, 1] == 0 && values[0, 2] == 0) || (values[1, 0] == 0 && values[1, 1] == 0 && values[1, 2] == 0) || (values[2, 0] == 0 && values[2, 1] == 0 && values[2, 2] == 0)
+                        || (values[0, 0] == 0 && values[1, 0] == 0 && values[2, 0] == 0) || (values[2, 1] == 0 && values[1, 1] == 0 && values[0, 1] == 0) || (values[0, 2] == 0 && values[1, 2] == 0 && values[2, 2] == 0)
+                        || (values[0, 2] == 0 && values[1, 1] == 0 && values[2, 0] == 0) || (values[0, 0] == 0 && values[1, 1] == 0 && values[2, 2] == 0))
+                    {
+                        textBox1.Text = "Y Wins!";
+
+                        YWinner = "yes";
+
+                    }
+                    else
+                    {
+                        YWinner = "no";
+
+                    }
+
+                    
+                    if(XWinner== YWinner)
+                    {
+                        textBox1.Text = "The game was a tie!";
+
+
+                    }
+                    //textBox1.Focus();
+
+
+                    //outputListBox.Items.Add(values[row, col].ToString());
+
+                    //output 1 and 0 in the labels generated from random numbers
+                    //label1.Text = values[0, 0].ToString();
+
+                }
+            }
+
+        }
+
+        private void exitButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
